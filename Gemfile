@@ -52,16 +52,17 @@ gem 'rack-cors'
 gem 'kaminari'
 
 
-group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+group :development, :test do
   gem 'rspec-rails', '~> 6.0'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
-
-  # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-  gem "error_highlight", ">= 0.4.0", platforms: [ :ruby ]
+  
+end
+group :development do
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "web-console"
+  
 end
 
 group :test do
