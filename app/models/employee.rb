@@ -21,6 +21,6 @@ class Employee < ApplicationRecord
   private
 
   def normalize_email
-    self.email = email.downcase.strip
+    self.email = email.downcase.strip if email.present?
   end
 end
