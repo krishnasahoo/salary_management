@@ -11,4 +11,20 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  namespace :api do
+    namespace :v1 do
+      resources :employees
+      get 'insights/summary',       to: 'insights#summary'
+      get 'insights/by_country',    to: 'insights#by_country'
+      get 'insights/by_job_title',  to: 'insights#by_job_title'
+      get 'insights/filters',       to: 'insights#filters'
+    end
+  end
+
+  # Serve React for all non-API routes
+  get '*path', to: 'frontend#index', constraints: ->(req) {
+    !req.xhr? && req.format.html?
+  }
+  root 'frontend#index'
+
 end
