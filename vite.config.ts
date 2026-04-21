@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import RubyPlugin from 'vite-plugin-ruby'
 import react from '@vitejs/plugin-react'
+import path from 'path/win32'
 
 export default defineConfig({
   plugins: [
@@ -10,6 +11,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './app/frontend/test/setup.ts',
+    setupFiles: [path.resolve(__dirname, './app/frontend/test/setup.ts')],
   },
 })
