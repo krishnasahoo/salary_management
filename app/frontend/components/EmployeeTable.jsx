@@ -29,7 +29,7 @@ export default function EmployeeTable({ employees, onEdit, onDelete }) {
               <td style={td}>{emp.job_title}</td>
               <td style={td}>{emp.department}</td>
               <td style={td}>{emp.country}</td>
-              <td style={td}>${Number(emp.salary).toLocaleString()}</td>
+              <td style={td}>₹{Number(emp.salary).toLocaleString()}</td>
               <td style={td}>
                 <span style={badge('#eff6ff','#3b82f6')}>
                   {emp.employment_type?.replace('_',' ')}

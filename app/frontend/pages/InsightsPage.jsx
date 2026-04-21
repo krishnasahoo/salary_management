@@ -55,7 +55,7 @@ export default function InsightsPage() {
           {[
             { label: 'Total Employees',  value: summary.total_employees?.toLocaleString(), color: '#3b82f6' },
             { label: 'Active Employees', value: summary.active_employees?.toLocaleString(), color: '#10b981' },
-            { label: 'Avg Salary',       value: `$${summary.avg_salary?.toLocaleString()}`, color: '#f59e0b' },
+            { label: 'Avg Salary',       value: `₹${summary.avg_salary?.toLocaleString()}`, color: '#f59e0b' },
             { label: 'Recent Hires (90d)', value: summary.recent_hires?.toLocaleString(), color: '#8b5cf6' },
           ].map(({ label, value, color }) => (
             <div key={label} style={{ background: '#fff', border: '1px solid #e2e8f0',
@@ -103,14 +103,14 @@ export default function InsightsPage() {
 
         {/* Top Paying Countries */}
         <div style={card}>
-          <h3 style={cardTitle}>Top Paying Countries (Avg $)</h3>
+          <h3 style={cardTitle}>Top Paying Countries (Avg ₹)</h3>
           <ResponsiveContainer width="100%" height={220}>
             <BarChart data={topCountries} layout="vertical"
               margin={{ left: 20, right: 20 }}>
               <XAxis type="number" tick={{ fontSize: 11 }}
-                tickFormatter={v => `$${(v/1000).toFixed(0)}k`} />
+                tickFormatter={v => `₹${(v/1000).toFixed(0)}k`} />
               <YAxis dataKey="name" type="category" tick={{ fontSize: 11 }} />
-              <Tooltip formatter={v => `$${v.toLocaleString()}`} />
+              <Tooltip formatter={v => `₹${v.toLocaleString()}`} />
               <Bar dataKey="value" fill="#10b981" radius={[0,4,4,0]} />
             </BarChart>
           </ResponsiveContainer>
@@ -138,9 +138,9 @@ export default function InsightsPage() {
             gap: 12, marginBottom: 20 }}>
             {[
               { label: 'Headcount',   value: countryInsight.headcount },
-              { label: 'Min Salary',  value: `$${countryInsight.min_salary?.toLocaleString()}` },
-              { label: 'Avg Salary',  value: `$${countryInsight.avg_salary?.toLocaleString()}` },
-              { label: 'Max Salary',  value: `$${countryInsight.max_salary?.toLocaleString()}` },
+              { label: 'Min Salary',  value: `₹${countryInsight.min_salary?.toLocaleString()}` },
+              { label: 'Avg Salary',  value: `₹${countryInsight.avg_salary?.toLocaleString()}` },
+              { label: 'Max Salary',  value: `₹${countryInsight.max_salary?.toLocaleString()}` },
             ].map(({ label, value }) => (
               <div key={label} style={{ background: '#f8fafc', borderRadius: 8,
                 padding: 14, textAlign: 'center' }}>
@@ -159,9 +159,9 @@ export default function InsightsPage() {
             <span style={{ margin: '0 8px', color: '#64748b' }}>·</span>
             {jobInsight.headcount} employees
             <span style={{ margin: '0 8px', color: '#64748b' }}>·</span>
-            Avg: <strong>${jobInsight.avg_salary?.toLocaleString()}</strong>
+            Avg: <strong>₹{jobInsight.avg_salary?.toLocaleString()}</strong>
             <span style={{ margin: '0 8px', color: '#64748b' }}>·</span>
-            Range: ${jobInsight.min_salary?.toLocaleString()} – ${jobInsight.max_salary?.toLocaleString()}
+            Range: ₹{jobInsight.min_salary?.toLocaleString()} – ₹{jobInsight.max_salary?.toLocaleString()}
           </div>
         )}
       </div>
