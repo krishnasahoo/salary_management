@@ -6,8 +6,10 @@ import path from 'path/win32'
 export default defineConfig({
   plugins: [
     RubyPlugin(),
-    react(),
-  ],
+    react({
+      jsxRuntime: 'automatic',
+    }),
+  ],  
   test: {
     globals: true,
     environment: 'jsdom',

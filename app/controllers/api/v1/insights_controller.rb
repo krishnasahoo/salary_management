@@ -1,6 +1,7 @@
 module Api
   module V1
     class InsightsController < ApplicationController
+      skip_before_action :verify_authenticity_token
       def by_country
         country = params[:country]
         scope   = Employee.by_country(country)

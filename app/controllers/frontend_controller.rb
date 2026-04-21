@@ -9,7 +9,7 @@ class FrontendController < ApplicationController
           <title>Salary Management</title>
           <%= vite_client_tag %>
           <%= vite_react_refresh_tag %>
-          <%= vite_javascript_tag 'main' %>
+          <%= vite_javascript_tag 'main.jsx' %>
         </head>
         <body>
           <div id="root"></div>
