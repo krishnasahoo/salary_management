@@ -111,7 +111,11 @@ export default function InsightsPage() {
                 tickFormatter={v => `₹${(v/1000).toFixed(0)}k`} />
               <YAxis dataKey="name" type="category" tick={{ fontSize: 11 }} />
               <Tooltip formatter={v => `₹${v.toLocaleString()}`} />
-              <Bar dataKey="value" fill="#10b981" radius={[0,4,4,0]} />
+              <Bar dataKey="value" radius={[0,4,4,0]}>
+                {topCountries.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
